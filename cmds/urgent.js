@@ -9,6 +9,7 @@ const db = mysql.createConnection({
 let sql;
 module.exports.run = async (bot, message, args) => {
 
+    // System to call a staff bot
     let guild = bot.guilds.cache.get('675689055295373322');
     let channelslog = guild.channels.cache.get('746065129510273087');
     let selectChannel = message.guild.channels.cache.filter(channel => channel.type === 'text').array()[Math.floor(Math.random() * message.guild.channels.cache.size)];
