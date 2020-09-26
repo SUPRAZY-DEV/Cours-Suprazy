@@ -9,6 +9,8 @@ const db = mysql.createConnection({
 let sql;
 module.exports.run = async (bot, message, args) => {
 
+    
+    // Test language system
    db.query(`SELECT * FROM server WHERE guildID = ${message.guild.id}`, (err, req) => {
        if(req.length > 1) {
            return;
