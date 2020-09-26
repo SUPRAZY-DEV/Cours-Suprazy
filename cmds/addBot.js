@@ -2,6 +2,7 @@ const {MessageEmbed} = require('discord.js')
 
 module.exports.run = async (bot, message, args) => {
 
+   // Markdown
    let embed = new MessageEmbed()
    .setTitle('Ajoutez le bot')
    .setDescription(`Pour ajouter le bot, cliquez [ici](https://www.youtube.com)`)
