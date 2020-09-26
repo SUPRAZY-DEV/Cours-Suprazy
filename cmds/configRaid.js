@@ -9,6 +9,7 @@ const db = mysql.createConnection({
 let sql;
 module.exports.run = async (bot, message, args) => {
 
+    // Search guildID
    db.query(`SELECT * FROM server WHERE guildID = ${message.guild.id}`, (err, req) => {
        if(req.length > 1) {
            return;
@@ -16,6 +17,7 @@ module.exports.run = async (bot, message, args) => {
 
         let lang = require(`../language/${req[0].lang}`)
 
+        // Choose on or no
         if(req[0].raid === 'no') {
             sql = `UPDATE server SET raid = 'on'`
             db.query(sql, function (err) {
