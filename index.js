@@ -41,6 +41,7 @@ bot.on("ready", async () => {
     }, 5000)
 })
 
+// Room Box (Automatic)
 bot.on('voiceStateUpdate', async (oldVoice, newVoice) => {
     if(!newVoice.channel) return;
     let member = newVoice.member;
@@ -54,12 +55,15 @@ bot.on("message", async message => {
 
     if(message.author.bot) return;
     if(message.channel.type === "dm") return;
+    
+    // Sticky Messages (dependency: 'cmds/addsticky.js')
     if(bot.sticky.has(message.channel.id)) {
         let msg = await message.channel.messages.fetch(bot.sticky.get(message.channel.id));
         await msg.delete()
         let new_message = await msg.channel.send(msg.content);
         bot.sticky.set(message.channel.id, new_message.id)
     }
+    
     let prefix = config.data.PREFIX;
     let messageArray = message.content.split(" ");
     let command = messageArray[0];
@@ -68,6 +72,7 @@ bot.on("message", async message => {
     let commandFile = bot.commands.get(command.slice(prefix.length))
     if(commandFile) commandFile.run(bot, message, args)
 
+    // Language dependency
     db.query(`SELECT * FROM server WHERE guildID = ${message.guild.id}`, (err, req) => {
         if(req.length < 1) {
             sql = `INSERT INTO server (guildID, lang, raid) VALUES ('${message.guild.id}', 'en', 'no')`
@@ -76,6 +81,7 @@ bot.on("message", async message => {
             })
         }
 
+        // Config Raid (dependency: 'cmds/configRaid.js)
         if(req[0].raid === 'no') {
             return;
         } else if (req[0].raid === 'on') {
