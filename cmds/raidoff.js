@@ -9,6 +9,7 @@ const db = mysql.createConnection({
 let sql;
 module.exports.run = async (bot, message, args) => {
 
+    // For test Raid Mode
     if(!message.member.hasPermission('ADMINISTRATOR')) return;
    db.query(`SELECT * FROM server WHERE guildID = ${message.guild.id}`, async (err, req) => {
        if(req.length > 1) {
