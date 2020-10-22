@@ -1,3 +1,3 @@
-# Cours 
+## Info
 
-Pour installer le bot faîtes *npm i* et mettez votre **token** 
+Ces codes ont été réaliser lors des cours disponible sur notre serveur Discord
