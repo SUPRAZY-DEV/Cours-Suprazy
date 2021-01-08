@@ -12,10 +12,10 @@ const db = mysql.createConnection({
     password: "",
     database: "cours"
     /*
-    host: local ou nan
-    user: nom d'utilisateur
-    password: 
-    database: nom de la base de données 
+    host: local or no
+    user: name of user
+    password: regularly no
+    database: name of database 
     */
 });
 
