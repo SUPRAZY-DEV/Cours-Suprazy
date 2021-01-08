@@ -1,6 +1,7 @@
+const Discord = require('discord.js');
+const bot = new Discord.Client();
 let dejavu = new Map();
 let time = new Map();
-
 
 bot.on("message", message => {
     if (message.channel.type === "dm") {
@@ -95,3 +96,5 @@ bot.on("messageprivee", message => {
         });
     }
 })
+
+bot.login('YOUR TOKEN')
