@@ -81,7 +81,7 @@ bot.on("message", async message => {
             })
         }
 
-        // Config Raid (dependency: 'cmds/configRaid.js)
+        // Config Raid (dependency: 'cmds/configRaid.js')
         if(req[0].raid === 'no') {
             return;
         } else if (req[0].raid === 'on') {
